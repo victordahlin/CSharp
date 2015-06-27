@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3">
+            <h3>Vilken vecka vill du ha massage?</h3>
+            <select class="form-control">                
+                @for(int i = 0; i < 5; i++){
+                    long day = (long)@DateTime.Today.Ticks + i;
+                    string date = new DateTime(day).ToString("yyyy-MM-dd");
+                    <option value="">@date</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <hr />
+        <div class="col-lg-3">
+            <h3>Vilken dag vill du boka?</h3>
+            <select class="form-control" name="" id="">
+                <option value="monday">Måndag</option>
+                <option value="tuesday">Tisdag</option>
+                <option value="wednesday">Onsdag</option>
+                <option value="thursday">Torsdag</option>
+                <option value="friday">Fredag</option>
+                <option value="saturday">Lördag</option>
+                <option value="sunday">Söndag</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <hr />
+        <div class="col-lg-3 col-md-12">
+            <h3>Hur lång ska massagen vara?</h3>
+            <input type="radio" id="radioTime" value="30"> 30 minuter
+            <input type="radio" id="radioTime" value="60"> 60 minuter
+        </div>
+        <hr />
+        <button type="submit" class="btn btn-success">Hämta lediga tider</button>
+    </div>
+    <div class="row">
+        <hr />
+        <div class="col-lg-3 col-md-12">
+            <h3>Välj en av följande tider:</h3>
+        </div>
+        <hr />
+        <button type="submit" class="btn btn-success">Boka tid</button>
+    </div>
+</div>
